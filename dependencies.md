@@ -1,5 +1,5 @@
 # Google Apps Script Project: bmGasFlexCache
-This repo (bmGasFlexCache) was automatically updated on 9/19/2025, 3:19:42 PM by GasGit
+This repo (bmGasFlexCache) was automatically updated on 9/20/2025, 10:34:46 AM by GasGit
 
 For more information on gasgit, see the [desktop liberation site](https://ramblings.mcpher.com/drive-sdk-and-github/migrategasgit/ "desktop liberation")
 
@@ -30,6 +30,8 @@ bmIs| bmIs|1tFa7Gc68142wiiZaNmj0zA-ELDHh0q31eDXodeeCf1LxRR1LeSr3opAd|5|no|[here]
 ### Enabled Google Services
 no libraries discovered
 ### Scopes required
-no scopes discovered
+*scope*|
+--- |
+https://www.googleapis.com/auth/script.external_request
 ### Need more detail ?
 You can see [full project info as json here](info.json)
