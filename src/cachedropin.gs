@@ -5,11 +5,28 @@ var newCacheDropin = (...args) => new CacheDropin(...args)
 
 var getUserIdFromToken = (accessToken) => {
   const tokenInfo = getTokenInfo(accessToken)
-  if (typeof tokenInfo.sub !== 'string' || !tokenInfo.sub) {
-    throw new Error('failed to get user id from token info')
-  }
-  return tokenInfo.sub
+  return getUserIdFromTokenInfo(tokenInfo)
 }
+let complained = false
+
+const getUserIdFromTokenInfo = (tokenInfo) => {
+  let userId = tokenInfo.sub
+  if (!userId) {
+
+    if (!complained)console.warn('.. couldnt find userid in token - did you allow openid scope?');
+    if (tokenInfo.email) {
+      if (!complained)console.log('...using email as userid', tokenInfo.email)
+      userId = tokenInfo.email
+    }
+    else {
+      throw `..couldnt find email or sub in token - did you allow userInfo.email scope?`
+    }
+    complained = true
+  } 
+  return userId
+
+};
+
 
 const getTokenInfo = (accessToken) => {
   if (typeof accessToken !== 'string' || !accessToken) {
